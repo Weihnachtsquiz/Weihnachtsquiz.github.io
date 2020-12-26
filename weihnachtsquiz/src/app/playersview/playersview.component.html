@@ -17,17 +17,17 @@
     <body>
         <div style="display:flex;justify-content:center;align-items:center;">
             <div>
-                <h3>
+                <h3 style="margin-bottom: 0">
                      Weihnachtsmusikquiz-2020
                 </h3>
-                <small id="matchpoints" style="margin: 0; padding: 0">
-                    
+                <small id="matchpoints">
+                    Matchpunkte: {{matchpoints}}
                 </small>
                 <div style="overflow: hidden;">
-                        <h4 style="float:left;">
+                        <h4 style="float:left; margin-top: 0">
                             Punkte:
                             <p id="score" style="float: right;margin: 0">
-                                0
+                                {{points}}
                             </p>
                         </h4>
                     </div>
@@ -36,9 +36,9 @@
 
         <div style="display:flex;justify-content:center;align-items:center;">
             <div>
-                  <iframe width="110" height="200" src="https://www.myinstants.com/instant/sad-trombone/embed/"
-                   frameborder="0" scrolling="no">
-                 </iframe>
+                <iframe width="110" height="200" src="https://www.myinstants.com/instant/buzzer-89244/embed/"
+                 frameborder="0" scrolling="no">
+                </iframe>
             </div>
         </div>
 
@@ -49,39 +49,17 @@
         <div style="display: flex;flex-direction: column;width: 160px; align-items: center;">
             <div>
                 Antwort war richtig
-                <button class="btn" onclick="addOne()">
+                <button class="btn" (click)="addOne()">
                     &#9989;
                 </button>
             </div>
             <div>
                     Punkte zurücksetzen
-                    <button class="btn" onclick="reset()">
+                    <button class="btn" (click)="reset()">
                         &#10060;
                     </button>
                 </div>
         </div>
     </div>
-        <script>
-        let score = 0;
-        let matchpoints = 0;
-        document.getElementById("matchpoints").innerHTML = "Matchpoints: " + matchpoints;
-        
-        function reset() {
-            score = 0;
-            document.getElementById("score").innerHTML = score;
-        }
-
-        function addOne() {
-            score++;
-            document.getElementById("score").innerHTML = score;
-            if(score >= 5) {
-                matchpoints++;
-                score = 0;
-                document.getElementById("matchpoints").innerHTML = "Matchpoints: " + matchpoints;
-                document.getElementById("score").innerHTML = score;
-                window.alert("Du hast diese Runde gewonnen.")
-            }     
-        }
-        </script>
     </body>
 </html>
